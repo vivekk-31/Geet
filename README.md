@@ -33,6 +33,11 @@ Built with **Express.js** and **MongoDB**, deployed on **Render**.
 Create a `.env` file at the root:
 
 ```bash
-PORT=5000
+FRONTEND_URL=<your-frontend-url>
+PORT=3000
 MONGO_URI=<your-mongodb-uri>
 JWT_SECRET=<your-jwt-secret>
+JWT_EXPIRES_IN=<expires-in>
+CLOUDINARY_CLOUD_NAME=<your-cloudinary-cloud-name>
+CLOUDINARY_API_KEY=<your-cloudinary-api-key>
+CLOUDINARY_API_SECRET=<your-cloudinary-api-secret>

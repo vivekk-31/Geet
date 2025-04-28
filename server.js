@@ -24,20 +24,8 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Normalize origin by trimming trailing slashes
-      if (origin) origin = origin.replace(/\/$/, '');
-
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        // Allow requests with no origin (like mobile apps or Postman)
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: allowedOrigins,
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these methods, including OPTIONS for preflight
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers to be sent
   })
 );
 

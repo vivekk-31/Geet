@@ -1,0 +1,8 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore environment variable files (we’ll add them manually later in the deployment platform)
+.env
+.env.production
+
+uploads/

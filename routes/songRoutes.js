@@ -56,25 +56,5 @@ router.get('/my', protect, async (req, res) => {
     }
 });
 
-// Route: Like or unlike a song
-router.put('/like/:id', protect, async (req, res) => {
-    const { id } = req.params;
-    try {
-        const song = await Song.findById(id); // Find song by ID
-        const user = req.user._id;
-
-        // Toggle like: if already liked, remove like; if not, add like
-        if (song.likes.includes(user)) {
-            song.likes = song.likes.filter(like => like.toString() !== user.toString());
-        } else {
-            song.likes.push(user);
-        }
-
-        await song.save(); // Save updated song
-        res.status(200).json({ message: 'Song like status updated', song });
-    } catch (error) {
-        res.status(500).json({ message: 'Error liking song: ' + error.message });
-    }
-});
 
 export default router;

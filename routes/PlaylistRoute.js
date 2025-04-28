@@ -1,7 +1,6 @@
 import express from 'express';
 import { protect } from '../middleware/authMiddleware.js';
 import Playlist from '../models/playlist.js';
-import Song from '../models/song.js';
 
 const router = express.Router();
 

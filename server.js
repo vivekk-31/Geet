@@ -17,15 +17,10 @@ export const app = express();
 connectDB();
 
 // Using CORS policy to allow cross-origin requests (so frontend and backend can communicate)
-const allowedOrigins = [
-  'http://localhost:5173',    // Localhost for development
-  'https://geet-vivekk.vercel.app', // Production frontend URL without trailing slash
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true,
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173', // Default to localhost if no env variable found
+    credentials: true,  
   })
 );
 
